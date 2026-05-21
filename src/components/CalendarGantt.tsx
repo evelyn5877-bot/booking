@@ -35,10 +35,10 @@ export const CalendarGantt: React.FC<CalendarGanttProps> = ({ rooms, reservation
 
   const getChannelIcon = (channel: Reservation['channel']) => {
     switch (channel) {
-      case 'Booking.com': return <span className="font-bold mr-1">[B]</span>;
-      case 'Airbnb': return <span className="font-bold mr-1">[A]</span>;
-      case 'OLX': return <span className="font-bold mr-1">[O]</span>;
-      case 'LongTerm': return <span className="font-bold mr-1">[TL]</span>;
+      case 'Booking.com': return <span className="mr-1"><BookingIcon /></span>;
+      case 'Airbnb': return <span className="mr-1"><AirbnbIcon /></span>;
+      case 'OLX': return <span className="mr-1"><OLXIcon /></span>;
+      case 'LongTerm': return <span className="mr-1"><LongTermIcon /></span>;
       default: return null;
     }
   };

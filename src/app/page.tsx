@@ -4,6 +4,8 @@ import { useState } from 'react';
 import { CalendarGantt } from '@/components/CalendarGantt';
 import { RoomModal } from '@/components/RoomModal';
 import { UtilityManager } from '@/components/UtilityManager';
+import { UnifiedInbox } from '@/components/UnifiedInbox';
+import { ConnectionStatus } from '@/components/ConnectionStatus';
 import { mockRooms, mockReservations as initialReservations } from '@/lib/mock-data';
 import { Room, Reservation } from '@/types';
 
@@ -78,9 +80,15 @@ export default function Home() {
           <CalendarGantt rooms={mockRooms} reservations={reservations} startDate={startDate} />
         </section>
 
-        <section className="mt-12">
-          <UtilityManager activeRooms={mockRooms} />
-        </section>
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mt-12">
+          <section className="space-y-8">
+            <UtilityManager activeRooms={mockRooms} />
+            <ConnectionStatus />
+          </section>
+          <section>
+            <UnifiedInbox />
+          </section>
+        </div>
 
         {selectedRoom && (
           <RoomModal
